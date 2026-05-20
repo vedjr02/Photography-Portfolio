@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio - Under Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .header {
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .game-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .name-input-section {
+            margin-bottom: 2rem;
+        }
+
+        .name-input {
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            text-align: center;
+            margin-right: 10px;
+            min-width: 200px;
+        }
+
+        .name-input::placeholder {
+            color: #aaa;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-primary:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #f44336, #da190b);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+        }
+
+        .game-area {
+            display: none;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            min-width: 120px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .click-button {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.1s ease;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .click-button:hover {
+            transform: scale(1.05);
+        }
+
+        .click-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.5);
+        }
+
+        .click-button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .leaderboard {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .leaderboard h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .leaderboard-list {
+            list-style: none;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .leaderboard-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(5px);
+        }
+
+        .leaderboard-item.highlight {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .rank {
+            font-weight: bold;
+            font-size: 1.2rem;
+            min-width: 40px;
+        }
+
+        .rank.gold { color: #ffd700; }
+        .rank.silver { color: #c0c0c0; }
+        .rank.bronze { color: #cd7f32; }
+
+        .player-name {
+            flex-grow: 1;
+            text-align: left;
+            margin-left: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .score {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #4CAF50;
+        }
+
+        .result-message {
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .result-success {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .result-info {
+            background: rgba(33, 150, 243, 0.2);
+            color: #2196F3;
+            border: 1px solid rgba(33, 150, 243, 0.3);
+        }
+
+        .result-error {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+
+        .loading {
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .status-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .status-online {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .status-offline {
+            background: rgba(244, 67, 54, 0.2);
+            color: #f44336;
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .game-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .click-button {
+                width: 150px;
+                height: 150px;
+                font-size: 1.2rem;
+            }
+
+            .name-input {
+                margin-bottom: 1rem;
+                margin-right: 0;
+                width: 100%;
+            }
+
+            .status-indicator {
+                top: 10px;
+                right: 10px;
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="status-indicator" id="statusIndicator">🔄 Connecting...</div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Photography Portfolio</h1>
+            <p>This page is under development by Vedant</p>
+            <div class="subtitle">Come back later</div>
+        </div>
+
+        <div class="game-container">
+            <h2 class="game-title">🎯 Click Speed Challenge</h2>
+            
+            <div class="name-input-section" id="nameSection">
+                <input type="text" id="playerName" class="name-input" placeholder="Enter your name" maxlength="20">
+                <button onclick="startGame()" class="btn btn-primary" id="startButton">Start Game</button>
+            </div>
+
+            <div class="game-area" id="gameArea">
+                <div class="game-stats">
+                    <div class="stat">
+                        <div class="stat-label">Time Left</div>
+                        <div class="stat-value" id="timeLeft">10</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Clicks</div>
+                        <div class="stat-value" id="clickCount">0</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">CPS</div>
+                        <div class="stat-value" id="cps">0.0</div>
+                    </div>
+                </div>
+
+                <button id="clickButton" class="click-button" onclick="handleClick()">
+                    CLICK ME!
+                </button>
+
+                <div id="resultMessage"></div>
+
+                <button onclick="resetGame()" class="btn btn-danger" style="margin-top: 1rem;">Play Again</button>
+            </div>
+        </div>
+
+        <div class="leaderboard">
+            <h3>🏆 Live Leaderboard - Top 10</h3>
+            <div id="leaderboardContent" class="loading">Loading leaderboard...</div>
+        </div>
+    </div>
+
+    <script>
+        let gameActive = false;
+        let timeLeft = 10;
+        let clickCount = 0;
+        let gameTimer;
+        let playerName = '';
+        let serverOnline = false;
+        let lastPlayerId = null;
+
+        const API_BASE = window.location.origin + '/api';
+
+        // Check server status
+        async function checkServerStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                const data = await response.json();
+                serverOnline = data.success;
+                updateStatusIndicator();
+                return serverOnline;
+            } catch (error) {
+                console.error('Server check failed:', error);
+                serverOnline = false;
+                updateStatusIndicator();
+                return false;
+            }
+        }
+
+        function updateStatusIndicator() {
+            const indicator = document.getElementById('statusIndicator');
+            if (serverOnline) {
+                indicator.textContent = '🟢 Live';
+                indicator.className = 'status-indicator status-online';
+            } else {
+                indicator.textContent = '🔴 Offline';
+                indicator.className = 'status-indicator status-offline';
+            }
+        }
+
+        // Load leaderboard from server
+        async function loadLeaderboard() {
+            try {
+                const response = await fetch(`${API_BASE}/leaderboard`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayLeaderboard(data.data);
+                } else {
+                    throw new Error(data.error || 'Failed to load leaderboard');
+                }
+            } catch (error) {
+                console.error('Error loading leaderboard:', error);
+                document.getElementById('leaderboardContent').innerHTML = 
+                    '<div class="result-error">Failed to load leaderboard. Server may be offline.</div>';
+            }
+        }
+
+        // Submit score to server
+        async function submitScore(name, score) {
+            try {
+                const response = await fetch(`${API_BASE}/leaderboard`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, score })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayLeaderboard(data.data);
+                    return {
+                        success: true,
+                        rank: data.playerRank,
+                        message: data.message
+                    };
+                } else {
+                    throw new Error(data.error || 'Failed to submit score');
+                }
+            } catch (error) {
+                console.error('Error submitting score:', error);
+                return {
+                    success: false,
+                    error: error.message
+                };
+            }
+        }
+
+        function displayLeaderboard(leaderboardData) {
+            const content = document.getElementById('leaderboardContent');
+            
+            if (!leaderboardData || leaderboardData.length === 0) {
+                content.innerHTML = '<div class="loading">No scores yet. Be the first!</div>';
+                return;
+            }
+            
+            const listHTML = leaderboardData.map((player, index) => {
+                let rankClass = '';
+                let rankIcon = '';
+                let itemClass = 'leaderboard-item';
+                
+                if (index === 0) {
+                    rankClass = 'gold';
+                    rankIcon = '🥇';
+                } else if (index === 1) {
+                    rankClass = 'silver';
+                    rankIcon = '🥈';
+                } else if (index === 2) {
+                    rankClass = 'bronze';
+                    rankIcon = '🥉';
+                } else {
+                    rankIcon = `#${index + 1}`;
+                }
+
+                // Highlight the last player's score
+                if (player.id === lastPlayerId) {
+                    itemClass += ' highlight';
+                }
+                
+                return `
+                    <div class="${itemClass}">
+                        <div class="rank ${rankClass}">${rankIcon}</div>
+                        <div class="player-name">${player.name}</div>
+                        <div class="score">${player.score}</div>
+                    </div>
+                `;
+            }).join('');
+            
+            content.innerHTML = listHTML;
+        }
+
+        function startGame() {
+            const nameInput = document.getElementById('playerName');
+            playerName = nameInput.value.trim();
+            
+            if (!playerName) {
+                alert('Please enter your name!');
+                return;
+            }
+
+            if (!serverOnline) {
+                alert('Server is offline. Please try again later.');
+                return;
+            }
+
+            document.getElementById('nameSection').style.display = 'none';
+            document.getElementById('gameArea').style.display = 'block';
+            
+            gameActive = true;
+            timeLeft = 10;
+            clickCount = 0;
+            
+            updateDisplay();
+            
+            gameTimer = setInterval(() => {
+                timeLeft--;
+                updateDisplay();
+                
+                if (timeLeft <= 0) {
+                    endGame();
+                }
+            }, 1000);
+        }
+
+        function handleClick() {
+            if (gameActive) {
+                clickCount++;
+                updateDisplay();
+                
+                // Add click animation
+                const button = document.getElementById('clickButton');
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = 'scale(1)';
+                }, 100);
+            }
+        }
+
+        function updateDisplay() {
+            document.getElementById('timeLeft').textContent = timeLeft;
+            document.getElementById('clickCount').textContent = clickCount;
+            document.getElementById('cps').textContent = (clickCount / (10 - timeLeft) || 0).toFixed(1);
+        }
+
+        async function endGame() {
+            gameActive = false;
+            clearInterval(gameTimer);
+            
+            const button = document.getElementById('clickButton');
+            button.disabled = true;
+            button.textContent = 'SUBMITTING...';
+            
+            const finalScore = clickCount;
+            const resultDiv = document.getElementById('resultMessage');
+            
+            // Submit score to server
+            const result = await submitScore(playerName, finalScore);
+            
+            if (result.success) {
+                resultDiv.innerHTML = `
+                    <div class="result-success">
+                        🎉 Great job, ${playerName}!<br>
+                        Final Score: ${finalScore} clicks in 10 seconds<br>
+                        CPS: ${(finalScore / 10).toFixed(1)}<br>
+                        Your Rank: #${result.rank}
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <div class="result-error">
+                        Score: ${finalScore} clicks<br>
+                        ❌ Failed to submit to leaderboard<br>
+                        ${result.error}
+                    </div>
+                `;
+            }
+            
+            button.textContent = 'GAME OVER';
+        }
+
+        function resetGame() {
+            document.getElementById('nameSection').style.display = 'block';
+            document.getElementById('gameArea').style.display = 'none';
+            document.getElementById('resultMessage').innerHTML = '';
+            
+            const button = document.getElementById('clickButton');
+            button.disabled = false;
+            button.textContent = 'CLICK ME!';
+            
+            // Clear name input
+            document.getElementById('playerName').value = '';
+            lastPlayerId = null;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            await checkServerStatus();
+            await loadLeaderboard();
+            
+            // Refresh leaderboard every 30 seconds
+            setInterval(loadLeaderboard, 30000);
+            
+            // Check server status every 10 seconds
+            setInterval(checkServerStatus, 10000);
+        });
+
+        // Add Enter key support for name input
+        document.getElementById('playerName').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                startGame();
+            }
+        });
+
+        // Prevent right-click and other cheating methods
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+        document.addEventListener('selectstart', (e) => e.preventDefault());
+    </script>
+</body>
+</html>
