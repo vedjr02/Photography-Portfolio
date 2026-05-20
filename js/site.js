@@ -36,8 +36,8 @@ const PHOTOS = [
   { id: 35, file: '35.jpg', category: 'portrait', title: 'Natural Light' },
 ];
 
-const BASE = 'images/photography';
-const THUMB_BASE = 'images/photography/thumbnails';
+const BASE = '/images/photography';
+const THUMB_BASE = '/images/photography/thumbnails';
 const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let lenis = null;
