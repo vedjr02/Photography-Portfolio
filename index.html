@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vedant — Photography</title>
+  <meta name="description" content="Photography portfolio by Vedant. Moments captured through light, shadow, and perspective.">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-text">Vedant</span>
+      <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    </div>
+  </div>
+
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="#" class="nav-logo">Vedant</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#gallery" data-section="gallery">Gallery</a></li>
+        <li><a href="#about" data-section="about">About</a></li>
+        <li><a href="#contact" data-section="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-bg" data-parallax="0.35">
+        <img src="images/photography/7.jpg" alt="" class="hero-img" fetchpriority="high">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content" data-parallax="-0.08">
+        <p class="hero-eyebrow reveal">Photography</p>
+        <h1 class="hero-title reveal">Seeing the world<br><em>through light</em></h1>
+        <p class="hero-sub reveal">Moments frozen in time — raw, honest, and alive.</p>
+        <a href="#gallery" class="hero-cta reveal">Explore the work</a>
+      </div>
+      <div class="hero-scroll" data-parallax="-0.15">
+        <span>Scroll</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="featured-strip" id="featured" aria-label="Featured photographs">
+      <div class="featured-track" id="featuredTrack">
+        <div class="featured-item" data-parallax-speed="0.12"><img src="images/photography/thumbnails/3.jpg" alt="Featured" loading="lazy"></div>
+        <div class="featured-item" data-parallax-speed="0.18"><img src="images/photography/thumbnails/12.jpg" alt="Featured" loading="lazy"></div>
+        <div class="featured-item" data-parallax-speed="0.1"><img src="images/photography/thumbnails/20.jpg" alt="Featured" loading="lazy"></div>
+        <div class="featured-item" data-parallax-speed="0.15"><img src="images/photography/thumbnails/28.jpg" alt="Featured" loading="lazy"></div>
+        <div class="featured-item" data-parallax-speed="0.12"><img src="images/photography/thumbnails/31.jpg" alt="Featured" loading="lazy"></div>
+      </div>
+      <p class="featured-label reveal">Selected frames</p>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Selected Works</p>
+        <h2 class="section-title">Gallery</h2>
+      </div>
+
+      <div class="gallery-toolbar reveal">
+        <div class="filters" id="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="landscape">Landscape</button>
+        <button class="filter-btn" data-filter="portrait">Portrait</button>
+        <button class="filter-btn" data-filter="street">Street</button>
+        <button class="filter-btn" data-filter="nature">Nature</button>
+        </div>
+        <span class="gallery-count" id="galleryCount">35 photos</span>
+      </div>
+
+      <div class="gallery" id="galleryGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <div class="about-image-frame" data-parallax="0.1">
+            <img src="images/about-photo.jpg" alt="Vedant holding a camera" loading="lazy">
+          </div>
+        </div>
+        <div class="about-content reveal" data-parallax="-0.05">
+          <p class="section-eyebrow">About</p>
+          <h2 class="section-title">Behind the lens</h2>
+          <p class="about-text">
+            I'm Vedant — a photographer based in Mumbai, India. What started as curiosity
+            behind a viewfinder became a way of seeing. I chase golden hours, quiet streets,
+            and the small details most people walk past.
+          </p>
+          <p class="about-text">
+            Every frame is an attempt to hold something fleeting — a mood, a memory,
+            a sliver of light that won't come back the same way twice.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">35+</span>
+              <span class="stat-label">Photographs</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">Mumbai</span>
+              <span class="stat-label">Based in</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">2020</span>
+              <span class="stat-label">Since</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="contact-inner reveal">
+        <p class="section-eyebrow">Get in touch</p>
+        <h2 class="section-title contact-title">Let's create<br>something together</h2>
+        <p class="contact-text">
+          Available for commissions, collaborations, and prints.
+          Drop a line — I'd love to hear from you.
+        </p>
+        <div class="contact-email-wrap">
+          <a href="mailto:vedjr02@gmail.com" class="contact-email">vedjr02@gmail.com</a>
+          <button class="copy-btn" id="copyEmail" type="button" aria-label="Copy email">Copy</button>
+        </div>
+        <ul class="social-links">
+          <li><a href="https://www.instagram.com/_vedjr/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/in/vedant-ambre" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/vedjr02" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Vedant. All rights reserved.</p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&larr;</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&rarr;</button>
+    <div class="lightbox-content">
+      <div class="lightbox-loader" id="lightboxLoader"></div>
+      <img src="" alt="" id="lightboxImg" class="lightbox-img">
+    </div>
+    <div class="lightbox-meta">
+      <span class="lightbox-title" id="lightboxTitle"></span>
+      <span class="lightbox-counter" id="lightboxCounter"></span>
+      <span class="lightbox-category" id="lightboxCategory"></span>
+    </div>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>
