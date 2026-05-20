@@ -2,10 +2,10 @@
   "name": "vedant-photography",
   "version": "2.0.0",
   "description": "Modern photography portfolio website",
-  "main": "server.js",
+  "main": "dev-server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node dev-server.js",
+    "dev": "nodemon dev-server.js"
   },
   "keywords": ["photography", "portfolio"],
   "author": "Vedant",
